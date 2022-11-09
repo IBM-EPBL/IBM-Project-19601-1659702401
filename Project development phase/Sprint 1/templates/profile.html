@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-success">
+        <a class="navbar-brand text-white" href="/">Plasma Donor Application</a>
+        
+        <a href="{{url_for('logout')}}" class="btn btn-primary btn-block">Logout</a>
+    </nav>
+    <div class="container">
+        <div class="col-md-offset-3 col-md-5">
+            <h2 class="page-header text-primary text-center"></h2>
+            <h3 class="text-success">Welcome, {{session["name"]}}</h3>
+            
+            <p style="color:rgb(81, 81, 81);">Your details are listed here.</p>
+
+            
+            {% for row in users %}
+                    <p>Name: {{row["name"]}}</p>
+                    <p>Email: {{row["email"]}}</p>
+                    <p>Phone number: {{row["phone"]}}</p>
+                    <p>City: {{row["city"]}}</p>
+                    <p>Blood group: {{row["blood_group"]}}</p>
+            {% endfor %}
+            <hr>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
