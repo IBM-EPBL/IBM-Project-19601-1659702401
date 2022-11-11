@@ -28,15 +28,6 @@ def profile(name):
    if users:
       return render_template('profile.html', users=users)
 
-   # sql = f"SELECT * FROM USERS WHERE name='{escape(name)}'"
-   # stmt = ibm_db.exec_immediate(con, sql)
-   # tuple = ibm_db.fetch_tuple(stmt)
-   # while tuple != False:
-   #    print ("The name is : ", tuple[0])
-   #    print ("The email is : ", tuple[1])
-   #    tuple = ibm_db.fetch_tuple(stmt)
-   # return render_template('profile.html')
-
 @app.route('/about')
 def about():
    return render_template('about.html')
@@ -76,7 +67,7 @@ def chngstatus(id):
     print(id)
     uid = str(session.get("uniqid"))+""
     name = str(session.get("name"))+""
-    sql = f"""UPDATE "PSN93818"."REQUEST" SET "donorid" = '{uid}', "donorname" = '{name}',"status"='accepted' WHERE "FUNIQID" = '{id}';"""
+    sql = f"""UPDATE "PSN93818"."REQUEST" SET "DONORID" = '{uid}', "DONORNAME" = '{name}',"STATUS"='accepted' WHERE "FUNIQID" = '{id}';"""
     stmt = ibm_db.prepare(con, sql)
     ibm_db.execute(stmt)
     print("suc")
