@@ -1,4 +1,3 @@
-from flask import Flask, jsonify, request, make_response,render_template,redirect
 from flask import *
 import ibm_db
 import uuid
