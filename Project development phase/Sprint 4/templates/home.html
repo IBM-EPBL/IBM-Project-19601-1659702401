@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-success">
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('about')}}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('signup')}}">Signup</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{url_for('signin')}}">Signin</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <section class="body">
+
+        <div class="row m-0 py-5 py-lg-5">
+
+            <div class="container">
+                <h1 class="text-center mb-5">Plasma Donor Application</h1>
+                <!--a class="btn btn-primary mt-3" href="{{url_for('signup')}}">Get Started</a-->
+                <img class="img-fluid. max-width:100%" src="../static/images/background.jpg" height="850px" width="1500px">
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.watsonAssistantChatOptions = {
+          integrationID: "9a9e990c-31e8-411c-8b35-f7fef58e3e08", // The ID of this integration.
+          region: "au-syd", // The region your integration is hosted in.
+          serviceInstanceID: "7c004cc6-0a66-435e-baa0-808db59d134f", // The ID of your service instance.
+          onLoad: function(instance) { instance.render(); }
+        };
+        setTimeout(function(){
+          const t=document.createElement('script');
+          t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+          document.head.appendChild(t);
+        });
+      </script>
+
+</body>
+
+</html>
