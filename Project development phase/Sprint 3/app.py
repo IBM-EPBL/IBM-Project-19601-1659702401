@@ -36,7 +36,7 @@ def about():
 @app.route("/dashboard",methods=["get"])
 def dashboard():
     
-   uid = str(session.get("uniqid")+'')
+   uid = str(session.get("uniqid"))
    sql = f"""select * from "PSN93818"."REQUEST" Where "UNIQID"!='{uid}' AND "STATUS"='waiting'"""
 
    sql += ";"
