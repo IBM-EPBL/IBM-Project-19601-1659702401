@@ -1,0 +1,79 @@
+
+{% extends 'profile.html' %}
+
+
+{% block content %}
+
+    <form action="/requestform" method="post">
+      Name :<br>
+      <input  name='name' style="border:1px solid rgb(2, 85, 124); border-radius: 4px; background-color:#ffffff; width: 250px;"><br>
+
+      Phone number:<br>
+      <input type="text" name='phone' style="border:1px solid rgb(2, 85, 124); border-radius: 4px; background-color:#ffffff; width: 250px;"><br>
+      
+      Blood Group: <br>
+      <select name="bg" id="bg" style="border:1px solid rgb(2, 85, 124); border-radius: 4px; background:#ffffff; width: 250px; height: 32px;">
+          <option value="A+">A+</option>
+          <option value="B+">B+</option>
+          <option value="AB+">AB+</option>
+          <option value="O+">O+</option>
+          <option value="A-">A-</option>
+          <option value="B-">B-</option>
+          <option value="AB-">AB-</option>
+          <option value="O-">O-</option>
+      </select>
+      <br>
+    
+      City:
+      <br>
+      <select name="city" id="city" style="border:1px solid rgb(2, 85, 124); border-radius: 4px; background:#ffffff; width: 250px; height: 32px;">
+        <option value="ariyalur">Ariyalur</option>
+        <option value="chengalpattu">Chengalpattu</option>
+        <option value="chennai">Chennai</option>
+        <option value="coimbatore">Coimbatore</option>
+        <option value="cuddalore">Cuddalore</option>
+        <option value="dharmapuri">Dharmapuri</option>
+        <option value="dindigul">Dindigul</option>
+        <option value="erode">Erode</option>
+        <option value="kallakurichi">Kallakurichi</option>
+        <option value="kancheepuram">Kancheepuram</option>
+        <option value="kanyakumari">Kanyakumari</option>
+        <option value="karur">Karur</option>
+        <option value="krishnagiri">Krishnagiri</option>
+        <option value="madurai">Madurai</option>
+        <option value="mayiladuthurai">Mayiladuthurai</option>
+        <option value="nagapattinam">Nagapattinam</option>
+        <option value="nagercoil">Nagercoil</option>
+        <option value="namakkal">Namakkal</option>
+        <option value="nilgiris">Nilgiris</option>
+        <option value="perambalur">Perambalur</option>
+        <option value="pudukottai">Pudukottai</option>
+        <option value="ramanathapuram">Ramanathapuram</option>
+        <option value="ranipet">Ranipet</option>
+        <option value="salem">Salem</option>
+        <option value="sivagangai">Sivagangai</option>
+        <option value="tenkasi">Tenkasi</option>
+        <option value="thanjavur">Thanjavur</option>
+        <option value="theni">Theni</option>
+        <option value="thiruvallur">Thiruvallur</option>
+        <option value="thiruvarur">Thiruvarur</option>
+        <option value="tuticorin">Tuticorin</option>
+        <option value="trichirappalli">Trichirappalli</option>
+        <option value="thirunelveli">Thirunelveli</option>
+        <option value="tirupathur">Tirupathur</option>
+        <option value="tiruppur">Tiruppur</option>
+        <option value="tiruvannamalai">Tiruvannamalai</option>
+        <option value="vellore">Vellore</option>
+        <option value="viluppuram">Viluppuram</option>
+        <option value="virudhungar">Virudhunagar</option>
+      </select>
+      <br>
+    
+      Hospital Name :<br>
+      <input  type="text" name='hosp' style="border:1px solid rgb(2, 85, 124); border-radius: 4px; background-color:#ffffff;width: 250px;"><br><br>
+    
+      <input type="submit" value="Submit" style="border:1px solid rgb(19, 242, 7); border-radius: 4px; background-color:#ffffff;">
+    </form>
+     
+
+{% endblock content %}

@@ -1,0 +1,44 @@
+
+
+{% extends 'profile.html' %}
+
+
+{% block content %}
+<br>
+
+
+{% for record in requestarray  %}
+    
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">{{record[2]}}</h5>
+        <p class="card-text">{{record[3]}}</p>
+        <p class="card-text">{{record[4]}}</p>
+        <p class="card-text">{{record[5]}}</p>
+        <button class="btn btn-primary " formid='{{record[1]}}' onclick="postreq('{{record[1]}}')">Donate</a>
+    </div>
+</div>
+    
+
+{% endfor %}
+
+{% endblock content %}
+
+
+{% block jsextn %}
+    
+<script>
+
+    function postreq(val){
+
+        fetch('/changestatus/'+val)
+            .then((response) => response)
+            .then((data) => console.log(data));
+
+        console.log(val);
+    }
+
+</script>
+
+{% endblock jsextn %}

@@ -1,0 +1,5 @@
+Flask
+mailjet-rest
+uuid
+ibm-db
+hashlib

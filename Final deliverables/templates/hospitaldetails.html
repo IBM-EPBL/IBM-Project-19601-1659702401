@@ -1,0 +1,77 @@
+
+
+{% extends 'profile.html' %}
+
+
+{% block content %}
+<br>
+<!-- <nav class="navbar navbar-expand-md">
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
+
+        <li class="nav-item mr-3">
+            <select id="city" class="form-select" >
+                {% for i in LOCarr %}
+                
+                    <option value="{{i[0]}}">{{i[0]}}</option>
+                
+                {% endfor %}
+
+                <option value="" selected>none</option>
+              </select>
+        </li>
+        
+        <li class="nav-item ">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick=" filterfunc();">Search</button>
+        </li>
+    </ul>
+
+    </div> -->
+
+  </nav>
+
+  <table style="border: 1px solid #2b2b2b;font-weight: lighter;width: 80%;">
+    <tr style="border: 1px solid #2b2b2b;">
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>Phone number</th>
+      <th>Address</th>
+      <th>City</th>
+    </tr>
+
+    {% for record in dataarray  %}
+
+    <tr style="border: 1px solid #2b2b2b;">
+        <th>{{record[0]}}</th>
+        <th>{{record[1]}}</th>
+        <th>{{record[2]}}</th>
+        <th>{{record[4]}}</th>
+        <th>{{record[3]}}</th>
+    </tr>
+  
+    {% endfor %}
+
+    </table>
+
+{% endblock content %}
+
+
+{% block jsextn %}
+    
+<!-- <script>
+
+    function filterfunc(){
+
+        var CITY = document.getElementById("city").value;
+
+        location.replace(`/hospitaldetails?city=${CITY}`)
+        console.log(CITY);
+
+
+    }
+
+</script> -->
+
+{% endblock jsextn %}
