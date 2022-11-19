@@ -13,57 +13,57 @@ app.secret_key = '!@#GCEECE*&^'
 api_key = '71ccb22303b75f55a1e4592f6fe367e8'
 api_secret = 'b2413e0c9f02e44e895032fd13c1800b'
 mailjet = Client(auth=(api_key, api_secret), version='v3.1')
-# def registration(email):
-#    data = {
-#       'Messages': [
-#          {
-#             "From": {
-#             "Email": "plasmadonorapplication@protonmail.com",
-#             "Name": "IBM-GCE"
-#             },
-#             "To": [
-#             {
-#                "Email": email,
-#             }
-#             ],
-#             "Subject": "Registration successful",
-#             "TextPart": "Welcome to our project website.",
-#             # "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
-#             "CustomID": "AppGettingStartedTest"
-#          }
-#       ]
-#    }
-#    result = mailjet.send.create(data=data)
-#    print (result.status_code)
-#    print (result.json())
+def registration(email):
+   data = {
+      'Messages': [
+         {
+            "From": {
+            "Email": "plasmadonorapplication@protonmail.com",
+            "Name": "IBM-GCE"
+            },
+            "To": [
+            {
+               "Email": email,
+            }
+            ],
+            "Subject": "Registration successful",
+            "TextPart": "Welcome to our project website.",
+            # "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+            "CustomID": "AppGettingStartedTest"
+         }
+      ]
+   }
+   result = mailjet.send.create(data=data)
+   print (result.status_code)
+   print (result.json())
 
-# def plasmarequest(name,phone,bg,city,hosp):
-#    sql1 = """SELECT EMAIL FROM "PSN93818"."USERS" where CITY = '{C}';""".format(C=city)
-#    stmt = ibm_db.exec_immediate(con, sql1)
-#    dictionary = ibm_db.fetch_both(stmt)
-#    while dictionary != False:
-#       data = {
-#          'Messages': [
-#             {
-#                "From": {
-#                "Email": "plasmadonorapplication@protonmail.com",
-#                "Name": "IBM-GCE"
-#                },
-#                "To": [
-#                {
-#                   "Email": dictionary[0],
-#                }
-#                ],
-#                "Subject": "Donor needed",
-#                "TextPart": "Name:"+name+"\nPhone Number:"+phone+"\nBlood:"+bg+"\nLocation:"+city+"\nHospital:"+hosp+"\n",
-#                "CustomID": "ibm project"
-#             }
-#          ]
-#       }
-#       result = mailjet.send.create(data=data)
-#       print (result.status_code)
-#       print (result.json())
-#       dictionary = ibm_db.fetch_both(stmt)
+def plasmarequest(name,phone,bg,city,hosp):
+   sql1 = """SELECT EMAIL FROM "PSN93818"."USERS" where CITY = '{C}';""".format(C=city)
+   stmt = ibm_db.exec_immediate(con, sql1)
+   dictionary = ibm_db.fetch_both(stmt)
+   while dictionary != False:
+      data = {
+         'Messages': [
+            {
+               "From": {
+               "Email": "plasmadonorapplication@protonmail.com",
+               "Name": "IBM-GCE"
+               },
+               "To": [
+               {
+                  "Email": dictionary[0],
+               }
+               ],
+               "Subject": "Donor needed",
+               "TextPart": "Name:"+name+"\nPhone Number:"+phone+"\nBlood:"+bg+"\nLocation:"+city+"\nHospital:"+hosp+"\n",
+               "CustomID": "ibm project"
+            }
+         ]
+      }
+      result = mailjet.send.create(data=data)
+      print (result.status_code)
+      print (result.json())
+      dictionary = ibm_db.fetch_both(stmt)
 
 
 @app.route('/')
@@ -151,13 +151,6 @@ def hospitaldetails():
     
    uid = str(session.get("uniqid")+'')
    sql = f"""select * from "PSN93818"."HOSPITAL";"""
-
-   # if(hosp != "" and hosp != None):
-   #    sql += f""" AND "HOSP" ='{hosp}'"""
-   # if(CITY != "" and CITY != None):
-   #    sql += f""" AND "CITY" ='{CITY}' """
-   # if(BG != "" and BG!=None):
-   #    sql += f""" AND "BG" ='{BG}' """
 
    arr = []
    larr = []
@@ -306,7 +299,7 @@ def signup():
          ibm_db.execute(stmt)
          return redirect("/signin")
 
-      # registration(email)
+      registration(email)
 
    
 
@@ -339,7 +332,7 @@ def reqform_post():
    stmt = ibm_db.prepare(con, sql)
    ibm_db.execute(stmt)
 
-   # plasmarequest(name,phone,bg,city,hosp)
+   plasmarequest(name,phone,bg,city,hosp)
 
    return redirect("/myreq")
 
